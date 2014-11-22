@@ -7,7 +7,7 @@
 </head>
 <body ng-app="GameOfLive">
 	<header>
-		<h1>The Game of Live</h1>
+		<h1>The Game of Life</h1>
 		<h2>-John Horton Conway-</h2>
 	</header>
 	<div ng-controller="gameController as game">
@@ -20,11 +20,11 @@
             </h3>
 			<div class="option">
 				<div>{{newMap.rows}} Rows</div>
-				<input type="range" ng-model="newMap.rows"  min=5 max=100  />
+				<input type="range" ng-model="newMap.rows"  min=5 max=30  />
 			</div>
 			<div class="option">
 				<div>{{newMap.columns}} Columns</div>
-				<input type="range" ng-model="newMap.columns" min=5 max=100 />
+				<input type="range" ng-model="newMap.columns" min=5 max=30 />
 			</div>
             <div class="option">
                 <div>{{newMap.speed}} Milliseconds</div>
