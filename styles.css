@@ -1,0 +1,66 @@
+body{
+	text-align: center;
+}
+
+#Table{
+	overflow: auto;
+	display: inline-block;
+    border-spacing: 0;
+}
+
+.gameMap{
+	overflow: auto;
+}
+
+.rowMap{
+	overflow: auto;
+	clear:both;
+}
+
+.pointMap{
+	width:1em;
+	height:1em;
+	float:left;
+	cursor: pointer;
+	border: 0.1em solid black;
+}
+
+.activePoint{
+	background-color:black;
+}
+
+.playButton{
+	cursor: pointer;
+	padding: 0.5em 1em;
+	border: 0.2em solid black;
+	float: left;
+	margin: 1em;
+	border-radius: 0.3em;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+input.playButton{
+    background-color: inherit;
+    float: none;
+}
+
+#controls{
+    display: inline-block;
+	overflow: auto;
+	clear:both;
+}
+
+.clear{
+    width: 100%;
+    clear: both;
+}
+
+.option{
+    margin: 1em;
+    overflow: auto;
+}
+
+.button{
+    
+}

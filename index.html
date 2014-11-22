@@ -1,0 +1,74 @@
+<!DOCUTYPE html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="styles.css"/>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-app="GameOfLive">
+	<header>
+		<h1>The Game of Live</h1>
+		<h2>-John Horton Conway-</h2>
+	</header>
+	<div ng-controller="gameController as game">
+		<form name="newMapForm" 
+			ng-show="!game.game.created"
+			ng-controller="newMapController as newMap"
+			ng-submit="newMap.create(game.game)">
+            <h3 >
+                Select the map size and speed game.
+            </h3>
+			<div class="option">
+				<div>{{newMap.rows}} Rows</div>
+				<input type="range" ng-model="newMap.rows"  min=5 max=100  />
+			</div>
+			<div class="option">
+				<div>{{newMap.columns}} Columns</div>
+				<input type="range" ng-model="newMap.columns" min=5 max=100 />
+			</div>
+            <div class="option">
+                <div>{{newMap.speed}} Milliseconds</div>
+                <input type="range" ng-model="newMap.speed" min=100 max=4000 step="100"/>
+            </div>
+            <div class="option">
+				<input class="playButton" type="submit" value="Create Map"/>
+            </div>
+			</form>
+			<div id="gameMap" ng-show="game.game.created">
+				<h3>Click square to toggle state.</h3>
+                <table id="Table">
+					<tr class="rowMap" ng-repeat="row in game.game.map.matrix">
+						<td class="pointMap"
+						ng-repeat="point in row" 
+						ng-click="point.alive=!point.alive"
+						ng-class="{ activePoint : point.alive }">
+						</td>
+					</tr>
+				</table>
+                <div class="clear"></div>
+				<div id="controls">
+					<div ng-show="!game.game.started"
+                        class="playButton"
+						ng-click="game.resume()">
+				        Play
+					</div>
+					<div ng-show="!game.game.started"
+                        class="playButton"
+				        ng-click="game.step()">
+				        Next Step
+					</div>
+					<div ng-show="game.game.started"
+						class="playButton"
+				        ng-click="game.pause()">
+				        Pause
+					</div>
+					<div class="playButton"
+						ng-click="game.reset()"
+						>
+						Reset
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>
